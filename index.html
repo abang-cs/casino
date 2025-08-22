@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <title>Catatan Game</title>
     <link rel="stylesheet" href="style.css" />
+	 <script>
+    const sessionDuration = 10 * 60 * 1000;
+    if (!sessionStorage.getItem("sessionStart")) {
+      sessionStorage.setItem("sessionStart", Date.now());
+    }
+    setInterval(() => {
+      const sessionStart = parseInt(sessionStorage.getItem("sessionStart"));
+      const now = Date.now();
+      if ((now - sessionStart) > sessionDuration) {
+        window.location.href = "https://abang-cs.github.io/logout";
+      }
+    }, 1000);
+  </script>
 </head>
 <body>
     <div class="sidebar">
@@ -313,75 +326,36 @@
             <p>sedang di pikirkan konsep....</p>
         </div>
     </div>
-
-  <script>
-const SESSION_TIMEOUT = 10 * 60 * 1000; // 10 menit
-const LOGOUT_URL = "https://abang-cs.github.io/logout/";
-const PIN_PAGE_URL = "pin.html";
-
-function isAuthenticated() {
-  return sessionStorage.getItem("authenticated") === "true";
-}
-
-function isSessionValid() {
-  const start = sessionStorage.getItem("sessionStart");
-  if (!start) return false;
-  return (Date.now() - parseInt(start, 10)) < SESSION_TIMEOUT;
-}
-
-function logout() {
-  sessionStorage.clear();
-  window.location.href = LOGOUT_URL;
-}
-
+<script>
 function showContent(sectionId, element) {
-  // Hapus active dari semua konten
-  const contents = document.querySelectorAll(".content-section");
-  contents.forEach(c => c.classList.remove("active"));
+  // Sembunyikan semua konten
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Hapus class active dari semua menu
+  const menuLinks = document.querySelectorAll('.sidebar a');
+  menuLinks.forEach(link => {
+    link.classList.remove('active');
+  });
 
   // Tampilkan konten yang dipilih
-  const target = document.getElementById(sectionId);
-  if (target) target.classList.add("active");
-
-  // Hapus active dari semua menu
-  const menuItems = document.querySelectorAll(".sidebar a");
-  menuItems.forEach(item => item.classList.remove("active"));
-
-  // Tambahkan active ke menu yang diklik
-  if (element) element.classList.add("active");
+  document.getElementById(sectionId).classList.add('active');
+  element.classList.add('active');
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  if (!isAuthenticated()) {
-    window.location.href = PIN_PAGE_URL;
-    return;
-  }
-  
-  if (!isSessionValid()) {
-    logout();
-    return;
-  }
-
-  // Set timer logout otomatis
-  const sessionStart = parseInt(sessionStorage.getItem("sessionStart"), 10);
-  const remaining = SESSION_TIMEOUT - (Date.now() - sessionStart);
-  setTimeout(() => {
-    logout();
-  }, remaining);
-
-  // Tampilkan konten aktif sesuai menu active pertama
-  const activeMenu = document.querySelector(".sidebar a.active");
-  if (activeMenu) {
-    const firstSection = activeMenu.getAttribute("onclick")?.match(/'([^']+)'/);
-    if (firstSection) {
-      showContent(firstSection[1], activeMenu);
-    }
-  }
-});
-
 </script>
 
-
+ <script>
+ function logout() {
+  sessionStorage.clear(); 
+  window.location.href = "https://abang-cs.github.io/logout"; 
+}
+  // Cek apakah sudah login via PIN
+  if (sessionStorage.getItem("authenticated") !== "true") {
+    window.location.href = "pin.html";
+  }
+</script>
 
 </body>
 </html>
