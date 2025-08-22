@@ -1,7 +1,7 @@
-const correctHash = "6e891d3a8b780d8907175d82497b60409b1898198868c528eaef1fce84487890"; // hash dari "1234mysalt"
+const correctHash = "6e891d3a8b780d8907175d82497b60409b1898198868c528eaef1fce84487890"; // hash dari "1234x100"
 const salt = "x100";
 const maxAttempts = 3;
-const blockRedirectURL = "https://google.com/404"; // Ganti ke halaman jebakan kamu
+const blockRedirectURL = "https://google.com/404"; // halaman jebakan
 
 function appendDigit(digit) {
   const display = document.getElementById("pinDisplay");
@@ -24,31 +24,30 @@ async function hashString(str) {
 
 async function submitPin() {
   const pin = document.getElementById("pinDisplay").value;
-  const pinHash = await hashString(pin + salt);
   const attempts = parseInt(localStorage.getItem("failedAttempts") || "0");
 
   if (attempts >= maxAttempts) {
-    // Sudah diblokir
     window.location.href = blockRedirectURL;
     return;
   }
 
+  const pinHash = await hashString(pin + salt);
+
   if (pinHash === correctHash) {
+    const now = Date.now();
     sessionStorage.setItem("authenticated", "true");
-    localStorage.removeItem("failedAttempts"); // reset jika berhasil
+    sessionStorage.setItem("sessionStart", now.toString());
+    localStorage.removeItem("failedAttempts");
     window.location.href = "index.html";
   } else {
     const newAttempts = attempts + 1;
     localStorage.setItem("failedAttempts", newAttempts);
-
+    alert(`PIN salah! Percobaan ke ${newAttempts} dari ${maxAttempts}`);
     if (newAttempts >= maxAttempts) {
-      alert("Terlalu banyak percobaan bosku! Kamu diblokir.");
       window.location.href = blockRedirectURL;
-    } else {
-      alert(`PIN salah! Percobaan ke ${newAttempts} dari ${maxAttempts}`);
-      clearPin();
-      shuffleNumpad();
     }
+    clearPin();
+    shuffleNumpad();
   }
 }
 
@@ -63,9 +62,8 @@ function shuffle(array) {
 }
 
 function shuffleNumpad() {
-  const digits = ["1","2","3","4","5","6","7","8","9","0"];
-  shuffle(digits);
-  const numpad = document.querySelector(".numpad");
+  const digits = shuffle(["1","2","3","4","5","6","7","8","9","0"]);
+  const numpad = document.getElementById("numpad");
   numpad.innerHTML = "";
 
   digits.forEach(d => {
@@ -80,20 +78,18 @@ function shuffleNumpad() {
   clearBtn.className = "btn";
   clearBtn.textContent = "C";
   clearBtn.onclick = clearPin;
+  numpad.appendChild(clearBtn);
 
   const okBtn = document.createElement("button");
   okBtn.className = "btn";
   okBtn.textContent = "OK";
   okBtn.onclick = submitPin;
-
-  numpad.appendChild(clearBtn);
   numpad.appendChild(okBtn);
 }
 
 window.onload = function () {
   const attempts = parseInt(localStorage.getItem("failedAttempts") || "0");
   if (attempts >= maxAttempts) {
-    // Langsung blokir jika buka ulang halaman setelah gagal 3x
     window.location.href = blockRedirectURL;
     return;
   }
