@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <title>Catatan Game</title>
     <link rel="stylesheet" href="style.css" />
-	 <script>
+    <script>
     const sessionDuration = 10 * 60 * 1000;
     if (!sessionStorage.getItem("sessionStart")) {
-      sessionStorage.setItem("sessionStart", Date.now());
+        sessionStorage.setItem("sessionStart", Date.now());
     }
     setInterval(() => {
-      const sessionStart = parseInt(sessionStorage.getItem("sessionStart"));
-      const now = Date.now();
-      if ((now - sessionStart) > sessionDuration) {
-        window.location.href = "https://abang-cs.github.io/logout";
-      }
+        const sessionStart = parseInt(sessionStorage.getItem("sessionStart"));
+        const now = Date.now();
+        if ((now - sessionStart) > sessionDuration) {
+            window.location.href = "https://abang-cs.github.io/logout";
+        }
     }, 1000);
-  </script>
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -30,10 +30,10 @@
     <div class="main-content">
         <div id="baccarat" class="content-section active">
             <h2>BACCARAT:</h2>
-            <p>Baccarat adalah salah satu permainan judi kartu yang populer di kasino, baik secara fisik maupun online. Permainan ini dikenal karena aturannya yang sederhana dan cepat dimainkan. Baccarat sering dianggap sebagai permainan "kelas atas", tapi sebenarnya mudah dipelajari oleh siapa saja..</p>
-               <h2>Rules</h2>
+            <p>Baccarat adalah salah satu permainan judi kartu yang populer di kasino, baik secara fisik maupun online. Permainan ini dikenal karena aturannya yang sederhana dan cepat dimainkan...</p>
 
-<table>
+             <h2>Rules</h2>
+            <table>
   <thead>
     <tr>
       <th colspan="2">Player dua kartu pertama </th>
@@ -133,17 +133,13 @@
     </tr>
   </tbody>
 </table>
- <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Tabel Baccarat Lengkap (Bahasa Indonesia)</title>
-</head>
-<body>
+            
 
-  <h2>Baccarat</h2>
+            <h2>Baccarat</h2>
+            <p>Non-natural: Total dua kartu pertama tidak sama dengan 8 atau 9 poin.</p>
+            <p>Natural: Total dua kartu pertama sama dengan 8 atau 9 poin.</p>
 
-  <table border="1" cellspacing="0" cellpadding="8">
+            <table border="1" cellspacing="0" cellpadding="8">
     <thead>
       <tr>
         <th>Jenis</th>
@@ -153,7 +149,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Banker Tanpa Komisi</td>
+        <td>No Commission banker</td>
         <td>1:1</td>
         <td>Setelah kartu dibagikan, Banker memiliki nilai lebih tinggi (Mendapat 0,5x jika Banker menang dengan 6 poin. Taruhan dikembalikan jika hasil seri).</td>
       </tr>
@@ -163,32 +159,32 @@
         <td>Setelah kartu dibagikan, Banker memiliki nilai lebih tinggi.</td>
       </tr>
       <tr>
-        <td>Pemain</td>
+        <td>Player</td>
         <td>1:1</td>
         <td>Setelah kartu dibagikan, Pemain memiliki nilai lebih tinggi.</td>
       </tr>
       <tr>
-        <td>Seri</td>
+        <td>Tie</td>
         <td>1:8</td>
         <td>Setelah kartu dibagikan, nilai Pemain dan Banker sama. Taruhan dikembalikan.</td>
       </tr>
       <tr>
-        <td>Pasan Banker</td>
+        <td>Banker Pair	</td>
         <td>1:11</td>
         <td>Dua kartu pertama Banker adalah pasangan (angka sama, bukan simbol).</td>
       </tr>
       <tr>
-        <td>Pasan Pemain</td>
+        <td>Player Pair</td>
         <td>1:11</td>
         <td>Dua kartu pertama Pemain adalah pasangan (angka sama, bukan simbol).</td>
       </tr>
       <tr>
-        <td>Besar</td>
+        <td>Big</td>
         <td>1:0.5</td>
         <td>Total kartu Pemain dan Banker adalah 5 atau 6. (Tidak berlaku setelah 20 permainan dalam satu sesi kartu).</td>
       </tr>
       <tr>
-        <td>Kecil</td>
+        <td>Small</td>
         <td>1:1.5</td>
         <td>Total kartu Pemain dan Banker adalah 4. (Tidak berlaku setelah 20 permainan dalam satu sesi kartu).</td>
       </tr>
@@ -198,17 +194,17 @@
         <td>1:12 (Banker menang dengan 6 poin tanpa kartu ketiga)<br>1:20 (Banker menang dengan 6 poin dengan kartu ketiga)</td>
       </tr>
       <tr>
-        <td>Pasan Apa Saja</td>
+        <td>Any Pair</td>
         <td>1:5</td>
         <td>Jika dua kartu pertama dari Pemain atau Banker membentuk pasangan (angka atau huruf sama, simbol tidak dihitung)</td>
       </tr>
       <tr>
-        <td>Pasan Sempurna</td>
+        <td>Perfect Pair</td>
         <td>1:25</td>
         <td>Jika dua kartu pertama dari Pemain atau Banker identik (angka dan simbol sama).</td>
       </tr>
       <tr>
-        <td rowspan="7">Bonus Naga Pemain / Banker</td>
+        <td rowspan="7">Player Dragon Bonus or Banker Dragon Bonus</td>
         <td>1:30</td>
         <td>Menang tidak alami dengan selisih 9 poin</td>
       </tr>
@@ -219,27 +215,27 @@
       <tr><td>1:1</td><td>Menang tidak alami dengan selisih 4 poin</td></tr>
       <tr><td>1:1</td><td>Menang alami</td></tr>
       <tr>
-        <td>Taruhan Dikembalikan</td>
+        <td>Bets are refunded</td>
         <td></td>
         <td>Seri Alami (Natural Tie)</td>
       </tr>
       <tr>
-        <td>Seri Macan</td>
+        <td>Tiger Tie</td>
         <td>1:40</td>
         <td>Jika Banker dan Pemain seri dengan total 6 poin, taruhan “Seri Macan” menang. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td>Macan Besar</td>
+        <td>Big Tiger</td>
         <td>1:50</td>
         <td>Jika Banker menang dengan tiga kartu dan total 6 poin, taruhan “Macan Besar” menang. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td>Macan Kecil</td>
+        <td>Small Tiger</td>
         <td>1:22</td>
         <td>Jika Banker menang dengan dua kartu dan total 6 poin, taruhan “Macan Kecil” menang. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td>Pasan Macan</td>
+        <td>Tiger Pair</td>
         <td>1:100</td>
         <td>Pasangan kartu identik muncul untuk Banker dan Pemain<br>Contoh: Banker [10♠, 10♣, 8♠], Pemain [10♠, 10♦, 7♠]</td>
       </tr>
@@ -259,12 +255,12 @@
         <td>Jika Pemain menang dengan tiga kartu dan total 8 poin. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td>Naga 7</td>
+        <td>Dragon 7</td>
         <td>1:40</td>
         <td>Jika Banker menang dengan tiga kartu dan total 7 poin. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td rowspan="10">Super Seri (Tidak berlaku setelah 30 permainan)</td>
+        <td rowspan="10">Super Tie(not accepted after 30 games of every dealing shoe.)</td>
         <td>1:125</td>
         <td>Nilai Banker dan Pemain 0</td>
       </tr>
@@ -278,12 +274,12 @@
       <tr><td>1:70</td><td>Nilai Banker dan Pemain 8</td></tr>
       <tr><td>1:70</td><td>Nilai Banker dan Pemain 9</td></tr>
       <tr>
-        <td>Natural Banker</td>
+        <td>Banker Natural</td>
         <td>1:4</td>
         <td>Jika dua kartu pertama Banker bernilai 8 atau 9 dan langsung menang.</td>
       </tr>
       <tr>
-        <td>Natural Pemain</td>
+        <td>Player Natural</td>
         <td>1:4</td>
         <td>Jika dua kartu pertama Pemain bernilai 8 atau 9 dan langsung menang.</td>
       </tr>
@@ -293,23 +289,70 @@
         <td>Jika Pemain atau Banker mendapat nilai 8 atau 9 langsung dari dua kartu pertama. (Tidak berlaku setelah 30 permainan).</td>
       </tr>
       <tr>
-        <td>Naga</td>
+        <td>Dragon</td>
         <td>1:1</td>
         <td>Jika kartu pertama Banker lebih tinggi (10, J, Q, K = 10-13 poin), taruhan “Naga” menang.</td>
       </tr>
       <tr>
-        <td>Macan</td>
+        <td>Tiger</td>
         <td>1:1</td>
         <td>Jika kartu pertama Pemain lebih tinggi (10, J, Q, K = 10-13 poin), taruhan “Macan” menang.</td>
       </tr>
       <tr>
-        <td>Seri Naga-Macan</td>
+        <td>Dragon Tiger Tie</td>
         <td>1:8</td>
         <td>Jika kartu pertama Pemain dan Banker sama nilainya, taruhan “Seri Naga-Macan” menang. Jika terjadi, taruhan di “Naga” dan “Macan” dikembalikan setengah.</td>
       </tr>
     </tbody>
-  </table>
-    </div>
+            </table>
+			
+
+            <h2>Switch Play</h2>
+            <h3>
+                <li>Menu ini Fungsinya untuk memilih dan mengganti jenis taruhan tambahan (side bet) yang ingin di aktifkan di meja permainan Baccarat.</li>
+                <li>Pilih salah satu kotak dari "Customize1" sampai "Customize7". Masing-masing sudah punya kombinasi side bet yang berbeda</li>
+            </h3>
+
+            <a href="javascript:void(0)" onclick="toggleImage()">Contoh menu pilihan table Switch Play</a>
+            <img id="switchTableImage" src="https://img001.prntscr.com/file/img001/H7ieqkAPS52TX83C4HgAQQ.png" style="display:none;" alt="Switch Play Table Example">
+
+            <script>
+            function toggleImage() {
+                var img = document.getElementById('switchTableImage');
+                if (img.style.display === 'none') {
+                    img.style.display = 'block'; // Tampilkan gambar
+                } else {
+                    img.style.display = 'none'; // Sembunyikan gambar
+                }
+            }
+            </script>
+
+            <h2>Jenis Taruhan Lucy6</h2>
+            <table border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th>Jenis</th>
+                        <th>Odds</th>
+                        <th>Syarat Kemenangan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Lucy6 1:12/1:20</td>
+                        <td>1:12</td>
+                        <td>Jika banker menang dengan 6 poin dan tidak ada kartu ketiga yang ditarik</td>
+                    </tr>
+                    <tr>
+                        <td>1:20</td>
+                        <td>Jika banker menang dengan 6 poin dan kartu ketiga ditarik</td>
+                    </tr>
+                </tbody>
+            </table>
+			<p><strong>Note:</strong> <span style="color:red;">Bets are refunded / Taruhan dikembalikan jika hasil seri atau tie dalam taruhan Player,Banker,Dragon bonus jika (Natural Tie) dan Dragon atau Tiger kembali setengah apa bila result (Dragon Tiger Tie)</span></p>
+			
+			
+
+        </div> <!-- Penutupan div untuk "baccarat" -->
 
         <div id="roulette" class="content-section">
             <h2>ROULETTE:</h2>
@@ -325,37 +368,32 @@
             <h2>BULL BULL:</h2>
             <p>sedang di pikirkan konsep....</p>
         </div>
-    </div>
-<script>
-function showContent(sectionId, element) {
-  // Sembunyikan semua konten
-  const sections = document.querySelectorAll('.content-section');
-  sections.forEach(section => {
-    section.classList.remove('active');
-  });
+    </div> <!-- Penutupan div untuk "main-content" -->
 
-  // Hapus class active dari semua menu
-  const menuLinks = document.querySelectorAll('.sidebar a');
-  menuLinks.forEach(link => {
-    link.classList.remove('active');
-  });
+    <script>
+	function showContent(sectionId, element) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
 
-  // Tampilkan konten yang dipilih
-  document.getElementById(sectionId).classList.add('active');
-  element.classList.add('active');
-}
-</script>
+        const menuLinks = document.querySelectorAll('.sidebar a');
+        menuLinks.forEach(link => {
+            link.classList.remove('active');
+        });
 
- <script>
- function logout() {
-  sessionStorage.clear(); 
-  window.location.href = "https://abang-cs.github.io/logout"; 
-}
-  // Cek apakah sudah login via PIN
-  if (sessionStorage.getItem("authenticated") !== "true") {
-    window.location.href = "pin.html";
-  }
-</script>
+        document.getElementById(sectionId).classList.add('active');
+        element.classList.add('active');
+    }
 
+    function logout() {
+        sessionStorage.clear(); 
+        window.location.href = "https://abang-cs.github.io/logout"; 
+    }
+
+    if (sessionStorage.getItem("authenticated") !== "true") {
+        window.location.href = "pin.html";
+    }
+    </script>
 </body>
 </html>
