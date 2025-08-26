@@ -23,7 +23,7 @@
         <a class="active" onclick="showContent('baccarat', this)">Baccarat</a>
         <a onclick="showContent('roulette', this)">Roulette</a>
         <a onclick="showContent('SIC BO', this)">SIC BO</a>
-        <a onclick="showContent('bull', this)">Bull Bull</a>
+        <a onclick="showContent('Blackjack', this)">Blackjack</a>
         <a href="#" onclick="logout()">Logout</a>
     </div>
 
@@ -326,7 +326,364 @@
                 }
             }
             </script>          
-            </table>								
+            </table>	
+			  <h2>Panduan Fitur Asuransi (Insurance Conditions)</h2>
+
+  <p>
+    Fitur asuransi dalam permainan ini disediakan untuk memberikan perlindungan tambahan bagi pemain atas potensi kekalahan taruhan utama. Berikut adalah penjelasan mengenai kondisi dan mekanisme asuransi:
+  </p>
+
+  <h3>1. Kemenangan Alami (Natural) Membatalkan Asuransi</h3>
+  <p>
+    Apabila Banker atau Player memperoleh total poin 8 atau 9 dari dua kartu pertama, ronde dinyatakan selesai (natural win) dan tidak akan dilakukan pembagian kartu ketiga.
+    Dalam kondisi ini, taruhan asuransi tidak berlaku dan tidak akan diaktifkan.
+  </p>
+
+  <h3>2. Pemicu Asuransi dalam Satu Ronde</h3>
+  <p>
+    Dalam setiap ronde permainan, masing-masing pihak (Banker dan Player) memiliki maksimal dua kali kesempatan untuk memicu taruhan asuransi. Jika kombinasi kartu awal memenuhi syarat yang ditentukan, sistem akan secara otomatis menawarkan opsi asuransi kepada pemain yang memenuhi kriteria.
+  </p>
+
+  <h3>3. Kualifikasi untuk Menempatkan Taruhan Asuransi</h3>
+  <p>
+    Hanya pemain yang memasang taruhan pada pihak yang diasuransikan yang dapat mengikuti asuransi tersebut. Sebagai contoh:
+  </p>
+  <ul>
+    <li>Jika asuransi Banker diaktifkan, hanya pemain yang bertaruh pada Banker yang dapat memasang taruhan asuransi tersebut.</li>
+    <li>Jika asuransi Player diaktifkan, hanya pemain yang bertaruh pada Player yang dapat mengikuti asuransi tersebut.</li>
+  </ul>
+
+  <h3>4. Pembatasan Penempatan Taruhan Asuransi Ganda</h3>
+  <p>
+    Jika jenis asuransi yang sama (misalnya Asuransi Banker) dipicu dua kali dalam satu ronde, pemain hanya diperbolehkan memasang taruhan satu kali. Apabila pemain tidak memenuhi kualifikasi untuk menempatkan taruhan asuransi, mereka harus menunggu pemain lain yang memenuhi syarat untuk melanjutkan.
+  </p>
+
+  <h3>5. Nilai Odds (Peluang Pembayaran) Asuransi</h3>
+  <p>
+    Odds dari taruhan asuransi ditentukan berdasarkan total poin awal (starting hand) dari Banker atau Player. Semakin besar ketidakseimbangan antara poin Banker dan Player, maka nilai odds akan disesuaikan. Informasi lengkap mengenai nilai odds dapat dilihat pada tabel "Insurance Rules".
+  </p>
+
+  <h3>6. Perhitungan Minimum dan Maksimum Taruhan Asuransi</h3>
+  <p>
+    Nilai taruhan asuransi ditentukan dengan rumus sebagai berikut:
+  </p>
+  <ul>
+    <li>
+      <strong>Taruhan minimum asuransi</strong> = (Taruhan minimum per ronde / Odds) → dibulatkan ke bawah.
+    </li>
+    <li>
+      <strong>Taruhan maksimum asuransi</strong> = (Taruhan utama / Odds) - 1 → dibulatkan ke bawah.
+    </li>
+    <li>
+      Jika nilai taruhan maksimum lebih kecil dari taruhan minimum, maka sistem secara otomatis akan menggunakan nilai minimum.
+    </li>
+  </ul>
+
+  <h3>7. Ketentuan Hasil Seri (Tie)</h3>
+  <p>
+    Apabila hasil akhir dari ronde adalah seri (tie), maka seluruh jenis taruhan akan dikembalikan (refund) kepada pemain. Pengembalian ini mencakup:
+  </p>
+  <ul>
+    <li>Taruhan pada Banker</li>
+    <li>Taruhan pada Player</li>
+    <li>Taruhan Asuransi Banker</li>
+    <li>Taruhan Asuransi Player</li>
+  </ul>
+
+  <h3>Contoh Penerapan Fitur Asuransi</h3>
+  <p>
+    Seorang pemain memasang taruhan pada <strong>Banker</strong>. Dua kartu awal yang dibagikan kepada Banker berjumlah 6 poin. Berdasarkan kondisi tersebut, sistem menilai bahwa pihak <strong>Player</strong> memiliki peluang menang yang lebih tinggi, sehingga secara otomatis sistem menawarkan opsi <strong>Asuransi Banker</strong> sebagai perlindungan tambahan bagi pemain.
+  </p>
+
+  <p>
+    Jika pemain memilih untuk mengikuti taruhan asuransi dan Banker kalah pada ronde tersebut, maka pemain akan menerima pembayaran sesuai dengan odds yang berlaku pada taruhan asuransi.
+  </p>
+
+  <p>
+    Sebaliknya, jika Banker menang, maka taruhan utama pada Banker tetap berlaku seperti biasa dan taruhan asuransi akan hangus (hilang).
+  </p>
+
+  <p>
+    Fitur asuransi ini dirancang untuk membantu pemain meminimalkan kerugian dengan memberikan kesempatan kompensasi saat taruhan utama berisiko kalah.
+  </p>
+
+			<h2>Insurance Rules:</h2>		
+  <h3 style="color: red;">Banker Insurance</h3>
+
+  <h4>Player Before the Third Card</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Banker Points</th>
+      <th>Player Points</th>
+      <th>Odds of Banker Insurance</th>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0–3</td>
+      <td>1:1.5</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0–4</td>
+      <td>1:2</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0–5</td>
+      <td>1:3</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0–5</td>
+      <td>1:4</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Card Result</th>
+      <th>Banker Insurance Bets</th>
+      <th>Banker Bets</th>
+    </tr>
+    <tr>
+      <td>Player wins</td>
+      <td>Win</td>
+      <td>Lose</td>
+    </tr>
+    <tr>
+      <td>Banker wins</td>
+      <td>Lose</td>
+      <td>Win</td>
+    </tr>
+    <tr>
+      <td>Tie</td>
+      <td>Tie</td>
+      <td>Tie</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <h4>Player After the Third Card</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Banker Points</th>
+      <th>Player Points</th>
+      <th>Odds of Banker Insurance</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1:7</td>
+    </tr>
+    <tr>
+      <td>1–3</td>
+      <td>0</td>
+      <td>1:10</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Card Result</th>
+      <th>Banker Insurance Bets</th>
+      <th>Banker Bets</th>
+    </tr>
+    <tr>
+      <td>Player wins</td>
+      <td>Win</td>
+      <td>Lose</td>
+    </tr>
+    <tr>
+      <td>Banker wins</td>
+      <td>Lose</td>
+      <td>Win</td>
+    </tr>
+    <tr>
+      <td>>=1-point tie</td>
+      <td>Tie</td>
+      <td>Tie</td>
+    </tr>
+    <tr>
+      <td>0-point tie</td>
+      <td>Win</td>
+      <td>Tie</td>
+    </tr>
+  </table>
+  
+   <h3 style="color: blue;">Player Insurance</h3>
+
+  <h4>Player Before the Third Card</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Banker Points</th>
+      <th>Player Points</th>
+      <th>Odds of Player Insurance</th>
+    </tr>
+    <tr>
+      <td>0–5</td>
+      <td>6</td>
+      <td>1:3</td>
+    </tr>
+    <tr>
+      <td>0–5</td>
+      <td>7</td>
+      <td>1:4</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Card Result</th>
+      <th>Player Insurance Bets</th>
+      <th>Player Bets</th>
+    </tr>
+    <tr>
+      <td>Banker wins</td>
+      <td>Win</td>
+      <td>Lose</td>
+    </tr>
+    <tr>
+      <td>Player wins</td>
+      <td>Lose</td>
+      <td>Win</td>
+    </tr>
+    <tr>
+      <td>Tie</td>
+      <td>Tie</td>
+      <td>Tie</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <h4>Player After the Third Card</h4>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Banker Points</th>
+      <th>Player Points</th>
+      <th>Odds of Player Insurance</th>
+    </tr>
+    <tr>
+      <td>0–3</td>
+      <td>4</td>
+      <td>1:1.5</td>
+    </tr>
+    <tr>
+      <td>0–4</td>
+      <td>5</td>
+      <td>1:2</td>
+    </tr>
+    <tr>
+      <td>0–5</td>
+      <td>6</td>
+      <td>1:3</td>
+    </tr>
+    <tr>
+      <td>0–6</td>
+      <td>7</td>
+      <td>1:4</td>
+    </tr>
+    <tr>
+      <td>0–6</td>
+      <td>8</td>
+      <td>1:8</td>
+    </tr>
+    <tr>
+      <td>0–6</td>
+      <td>9</td>
+      <td>1:10</td>
+    </tr>
+  </table>
+
+  <br>
+
+  <table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+      <th>Card Result</th>
+      <th>Player Insurance Bets</th>
+      <th>Player Bets</th>
+    </tr>
+    <tr>
+      <td>Banker wins</td>
+      <td>Win</td>
+      <td>Lose</td>
+    </tr>
+    <tr>
+      <td>Player wins</td>
+      <td>Lose</td>
+      <td>Win</td>
+    </tr>
+    <tr>
+      <td>&le;8-point tie</td>
+      <td>Tie</td>
+      <td>Tie</td>
+    </tr>
+    <tr>
+      <td>9-point tie</td>
+      <td>Win</td>
+      <td>Tie</td>
+    </tr>
+  </table>
+  
+    <h2 style="color: red;">Note End:</h2>
+
+  <h2>Ketentuan Teknis Permainan Live (Live Gaming Notes)</h2>
+
+  <p>
+    Berikut ini adalah kebijakan tambahan yang berlaku selama sesi permainan live berlangsung. Ketentuan ini ditetapkan untuk menjaga keadilan, transparansi, dan integritas permainan.
+  </p>
+
+  <h3>1. Keputusan Manajemen</h3>
+  <p>
+    Seluruh keputusan yang diambil oleh pihak manajemen bersifat final dan resmi. Tidak ada pengecualian dalam segala kondisi.
+  </p>
+
+  <h3>2. Kartu Jatuh atau Keluar dari Area Kamera</h3>
+  <p>
+    Apabila kartu terjatuh dari meja atau keluar dari jangkauan kamera selama proses pengocokan, supervisor akan menggantinya dengan satu set kartu baru dan melakukan pengocokan ulang.
+  </p>
+
+  <h3>3. Dealer Menarik Beberapa Kartu Sekaligus</h3>
+  <p>
+    Jika dealer secara tidak sengaja menarik dua atau tiga kartu secara bersamaan dalam keadaan tertutup, supervisor akan mengatur ulang kartu-kartu tersebut ke dalam urutan yang benar.
+  </p>
+
+  <h3>4. Kartu Tertarik Berlebih (Over Drawn)</h3>
+  <p>
+    Jika terdapat kartu yang tertarik melebihi jumlah seharusnya, maka kartu tersebut akan ditempatkan di bawah shoe box dan digunakan sebagai burn card pada ronde berikutnya. Permainan saat ini tetap dilanjutkan.
+  </p>
+
+  <h3>5. Kartu Terbuka Tanpa Pembakaran Awal</h3>
+  <p>
+    Jika dealer lupa membakar kartu dan terdapat dua atau lebih kartu yang sudah terbuka, maka permainan akan dibatalkan dan diganti dengan satu set kartu baru (boot baru).
+  </p>
+
+  <h3>6. Kartu Terbuka di Dalam Shoe</h3>
+  <p>
+    Jika ditemukan kartu terbuka di dalam shoe box, kartu tersebut tetap dianggap sah dan permainan akan dilanjutkan. Namun, jika pada saat itu terdapat penawaran asuransi, maka taruhan asuransi akan dibatalkan (void).
+  </p>
+
+  <h3>7. Asuransi Terlewat dan Kartu Terbuka</h3>
+  <p>
+    Apabila dealer lupa menawarkan asuransi dan secara tidak sengaja membuka kartu berikutnya, taruhan asuransi akan dianggap tidak sah. Permainan tetap berjalan seperti biasa.
+  </p>
+
+  <h3>8. Kesalahan Pemindaian Kartu</h3>
+  <p>
+    Jika dealer lupa memindai kartu sehingga posisi kartu Player dan Banker tertukar atau salah, sistem akan mengatur ulang posisi awal kartu. Semua taruhan asuransi akan dibatalkan. Permainan tetap dilanjutkan.
+  </p>
+
+  <h3>9. Penanda Akhir Shoe</h3>
+  <p>
+    Jika dealer menarik kartu berwarna merah atau hitam dari shoe box, hal tersebut menandakan bahwa set kartu (shoe) telah selesai. Shoe akan diganti sebelum permainan dilanjutkan.
+  </p>
         </div> <!-- Penutupan div untuk "baccarat" -->
 
         <div id="roulette" class="content-section">
@@ -622,8 +979,8 @@
 </ul>						
         </div>
 
-        <div id="bull" class="content-section">
-            <h2>BULL BULL:</h2>
+        <div id="Blackjack" class="content-section">
+            <h2>Blackjack:</h2>
             <p>sedang di pikirkan konsep....</p>
         </div>
     </div> <!-- Penutupan div untuk "main-content" -->
