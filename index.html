@@ -22,7 +22,7 @@
     <div class="sidebar">
         <a class="active" onclick="showContent('baccarat', this)">Baccarat</a>
         <a onclick="showContent('roulette', this)">Roulette</a>
-        <a onclick="showContent('dragon', this)">Dragon Tiger</a>
+        <a onclick="showContent('SIC BO', this)">Sic Bo</a>
         <a onclick="showContent('bull', this)">Bull Bull</a>
         <a href="#" onclick="logout()">Logout</a>
     </div>
@@ -476,12 +476,142 @@
         <strong>Jika terjadi penyelesaian yang salah,</strong> maka hasil taruhan akan diselesaikan ulang berdasarkan tayangan video dari permainan yang sedang berlangsung.
     </li>
 </ul>
+</div>
 
-        </div>
+        <div id="SIC BO" class="content-section">
+		<h2>JENIS TARUHAN</h2>
+<p>Chip ditempatkan di berbagai grid taruhan, dan Anda bisa bertaruh pada grid manapun selama waktu taruhan.</p>
 
-        <div id="dragon" class="content-section">
-            <h2>DRAGON TIGER:</h2>
-            <p>sedang di pikirkan konsep....</p>
+            <h2>PEMBAYARAN</h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>OPSI TARUHAN</th>
+            <th>PENJELASAN</th>
+            <th>ODDS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Big/Small -->
+        <tr>
+            <td>Big/Small</td>
+            <td>
+                <strong>Big:</strong> Total poin dadu adalah 11 sampai 17<br>
+                <strong>Small:</strong> Total poin dadu adalah 4 sampai 10<br>
+                Catatan: Jika keluar triple (tiga angka kembar), semua taruhan pada bagian ini kalah.
+            </td>
+            <td>1 : 1</td>
+        </tr>
+
+        <!-- Specific Triples -->
+        <tr>
+            <td>Specific Triples</td>
+            <td>
+                Taruhan bahwa ketiga dadu akan menunjukkan angka yang sama (misalnya tiga angka 6).<br>
+                Harus angka yang spesifik. <br>
+                Catatan: Jika keluar triple apapun tapi tidak sesuai dengan taruhan, taruhan kalah.
+            </td>
+            <td>1 : 180</td>
+        </tr>
+
+        <!-- Any Triple -->
+        <tr>
+            <td>Any Triple</td>
+            <td>Taruhan pada semua kombinasi triple sekaligus.</td>
+            <td>1 : 30</td>
+        </tr>
+
+        <!-- One of A Kind -->
+        <tr>
+            <td colspan="3" align="center"><strong>One of A Kind / Satu Jenis Dadu</strong></td>
+        </tr>
+        <tr>
+            <td>One Dice</td>
+            <td>Taruhan pada satu angka yang harus muncul pada satu dadu (pilih dari angka 1 sampai 6).</td>
+            <td>1 : 1</td>
+        </tr>
+        <tr>
+            <td>Two Dice</td>
+            <td>Taruhan pada satu angka yang harus muncul pada dua dadu.</td>
+            <td>1 : 2</td>
+        </tr>
+        <tr>
+            <td>Three Dices</td>
+            <td>Taruhan pada satu angka yang harus muncul pada ketiga dadu.</td>
+            <td>1 : 3</td>
+        </tr>
+        <tr>
+            <td>Specific Double</td>
+            <td>Taruhan pada pasangan angka tertentu yang harus keluar.</td>
+            <td>1 : 10</td>
+        </tr>
+        <tr>
+            <td>Two Dice Combination</td>
+            <td>Taruhan pada dua angka spesifik dalam kombinasi dua dadu. Terdapat 15 jenis kombinasi ini pada layout meja.</td>
+            <td>1 : 5</td>
+        </tr>
+
+        <!-- Sum of Points -->
+        <tr>
+            <td colspan="3" align="center"><strong>Sum of Points / Jumlah Total Poin</strong></td>
+        </tr>
+        <tr>
+            <td>4 or 17 Points</td>
+            <td>Total poin 4 atau 17</td>
+            <td>1 : 60</td>
+        </tr>
+        <tr>
+            <td>5 or 16 Points</td>
+            <td>Total poin 5 atau 16</td>
+            <td>1 : 30</td>
+        </tr>
+        <tr>
+            <td>6 or 15 Points</td>
+            <td>Total poin 6 atau 15</td>
+            <td>1 : 17</td>
+        </tr>
+        <tr>
+            <td>7 or 14 Points</td>
+            <td>Total poin 7 atau 14</td>
+            <td>1 : 12</td>
+        </tr>
+        <tr>
+            <td>8 or 13 Points</td>
+            <td>Total poin 8 atau 13</td>
+            <td>1 : 8</td>
+        </tr>
+        <tr>
+            <td>9,10,11,or 12 Points</td>
+            <td>Total poin 9, 10, 11, atau 12</td>
+            <td>1 : 6</td>
+        </tr>
+
+        <!-- Odd / Even -->
+        <tr>
+            <td colspan="3" align="center"><strong>Odd / Even</strong></td>
+        </tr>
+        <tr>
+            <td>Ganjil</td>
+            <td>
+                Total poin adalah 5, 7, 9, 11, 13, 15, 17<br>
+                Catatan: Jika keluar triple, semua taruhan pada bagian ini kalah.
+            </td>
+            <td>1 : 1</td>
+        </tr>
+        <tr>
+            <td>Genap</td>
+            <td>
+                Total poin adalah 4, 6, 8, 10, 12, 14, 16<br>
+                Catatan: Jika keluar triple, semua taruhan pada bagian ini kalah.
+            </td>
+            <td>1 : 1</td>
+        </tr>
+    </tbody>
+</table>
+			
+			
+			
         </div>
 
         <div id="bull" class="content-section">
